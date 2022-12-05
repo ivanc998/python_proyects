@@ -1,6 +1,3 @@
-# This module computes all the ways to choose n items out of m items.
-# Represents the elements with the numbers 0 or 1, signifying whether each was chosen or not.
-
 import numpy as np
 
 def mC1(m):
@@ -34,4 +31,3 @@ def combinatory_mn(m,n):
 					combinations += aux_comb
 
 	return combinations
-
