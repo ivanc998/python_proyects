@@ -12,7 +12,7 @@ if __name__ == "__main__":
     setup(name = dist_name,
           maintainer = manteiner, 
           description = description,
-          packages = find_packages(exclude  = ["tests", "plots"]),
+          packages = find_packages(),
           url = url,
           classifiers = classifiers,
           install_requires = ["numpy"])
