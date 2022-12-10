@@ -7,10 +7,13 @@ def mC1(m):
 	else:
 		return [list(row) for row in np.identity(m, dtype = int)]
 
-# Return a list of lists where each one of these represents a way to choose n elements of m.
-# Each list has 0 or 1. 0 presents the element was not be choosen and 1 that it was. 
-# Raise a TypeError if the m or n not satisfy the conditions of mCn
+
+
 def combinatory_mn(m,n):
+
+	# Return a list of lists where each one of these represents a way to choose n elements of m.
+	# Each list has 0 or 1. 0 presents the element was not be choosen and 1 that it was. 
+	# Raise a TypeError if the m or n not satisfy the conditions of mCn
 	
 	if not((type(m) is int) and (type(n) is int)):
 		raise TypeError('m and n must be both integers')
@@ -35,3 +38,22 @@ def combinatory_mn(m,n):
 					combinations += aux_comb
 
 	return combinations
+
+def permutation_m(m):
+
+	# Return a list of list each one with m number, it represents all ways to sort n elements.
+
+	if (not (type(m)  is int)) or (m < 0):
+		raise TypeError('m must be an integer')
+	elif m == 0:
+		permutations = [[]]
+	elif m == 1:
+		permutations = [[1]]
+	else:
+		permutations = []
+		for J in permutation_m(m-1):
+
+			permutations += [J[0:k] + [m] + J[k:m] for k in range(m)]
+
+	return(permutations) 
+
